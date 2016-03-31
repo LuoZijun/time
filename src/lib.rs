@@ -87,6 +87,10 @@ impl Timespec {
         assert!(nsec >= 0 && nsec < NSEC_PER_SEC);
         Timespec { sec: sec, nsec: nsec }
     }
+    pub fn getMillisecond(&self) -> f64 {
+       let millisecond: f64 = self.sec as f64 + (self.nsec as f64 / 1000.0 / 1000.0 / 1000.0 );
+       millisecond
+    }
 }
 
 impl Add<Duration> for Timespec {
